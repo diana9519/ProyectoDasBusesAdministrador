@@ -1,0 +1,88 @@
+.avatar {
+    height: 50px;
+}
+
+.footerStyle {
+    background-color: #5b10c1;
+    text-align: center;
+    color: white;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    height: fit-content;
+}
+
+.headerStyle {
+    background-color: white;
+    color: black;
+    top: 0px;
+    width: 100%;
+    height: fit-content;
+}
+
+.buttonStyle {
+    background-color: #5b10c1;
+    color: whitesmoke;
+    align-items: right;
+}
+
+a {
+    text-decoration: none;
+    color: #D9D9D9;
+}
+
+.indexStyle {
+    text-align: center;
+}
+
+.divFormulario {
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.divTituloLogin {
+    text-align: center;
+    font-weight: bold;
+}
+
+.navTemplate {
+    color: black;
+}
+
+.socialnetwork {
+    height: 25px;
+}
+
+.navBg {
+    color: black;
+    background-color: lightgray;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+
+}
+
+.custom-nav .navbar-nav li:not(:last-child) a {
+    margin-right: 50px;
+}
+
+.custom-nav {
+    display: flex;
+    align-items: center;
+}
+
+.iconos {
+    height: 25px;
+}
+
+.tituloBienvenida {
+    margin-left: 30px;
+    font-size: 20px; 
+    font-weight: bold;
+    
+}
+
