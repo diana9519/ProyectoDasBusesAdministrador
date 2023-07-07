@@ -26,7 +26,7 @@ if(isset($_POST['envio'])){
         </nav>
     </header>
     <div class="divFormulario">
-        <form action="login.php" class="formularioLogin" method="POST">
+        <form action="https://nilotic-quart.000webhostapp.com/login.php" class="formularioLogin" method="POST">
             <div class="divTituloLogin">
                 <h3>Iniciar Sesión</h3>
             </div>
@@ -75,3 +75,37 @@ if(isset($_POST['envio'])){
 </body>
 
 </html>
+<script>
+    document.getElementById("envio").addEventListener("click", function(event) {
+    event.preventDefault(); // Evita que el formulario se envíe de forma predeterminada
+    
+    // Obtén los valores de los campos de usuario y clave
+    var usuario = document.getElementById("usuario").value;
+    var clave = document.getElementById("clave").value;
+    
+    // Realiza la petición AJAX al servicio de inicio de sesión
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "https://nilotic-quart.000webhostapp.com/login.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            var response = JSON.parse(xhr.responseText);
+            if (response.id_usuario) {
+                // Si la respuesta contiene un ID de usuario, significa que el inicio de sesión fue exitoso
+                if (response.tipo_usuario == "ant") {
+
+                    // Redirige a la página deseada pasando el id_usuario como parámetro en la URL
+                    window.location.href = "okLogin.php?id_usuario=" + response.id_usuario + "&id_coop=" + response.id_coop;
+                } else {
+                    alert("Error en la autenticación");
+                }
+            } else {
+                // Si no, muestra un mensaje de error
+                alert("Error en la autenticación");
+            }
+        }
+    };
+    var params = "email_usuario=" + encodeURIComponent(usuario) + "&clave_usuario=" + encodeURIComponent(clave);
+    xhr.send(params);
+});
+</script>
