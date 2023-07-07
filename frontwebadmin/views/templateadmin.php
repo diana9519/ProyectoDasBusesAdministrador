@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -76,6 +79,12 @@
         </nav>
     </div>
     <section>
+    <h5>Bienvenido a la página de la cooperativa 
+        <?php echo $_SESSION['id_coop'];?>
+    </h5>
+    <h5>Bienvenido usuario  
+        <?php echo $_SESSION['id_usuario'];?>
+    </h5>
         <?php
         $mvc = new MvcController();
         $mvc->enlacesPaginasControllerAdmin();
