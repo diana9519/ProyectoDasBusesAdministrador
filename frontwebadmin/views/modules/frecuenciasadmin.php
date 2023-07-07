@@ -39,9 +39,8 @@
           </tr>
         </thead>
         <tbody>
-          //servicio par listar las frecuencias
           <?php
-          
+          //servicio par listar las frecuencias
           $url = 'https://nilotic-quart.000webhostapp.com/listarFrecuencias.php';
           $ch = curl_init($url);
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
