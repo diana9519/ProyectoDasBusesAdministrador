@@ -38,13 +38,13 @@ Te permitirá ingresar como administrador. Su funcionalidad en código está pre
 ![Localhost](https://cdn.glitch.global/1d3dd682-c1e7-4386-94b7-857b9d3c741b/fc99b374-43f0-4e2d-af10-b8df6ca241d2.jpg?v=1688858566878)
 #### Gestión Cooperativas
 En esta interfaz se encuentra implementado un CRUD para Cooperativas a excepción de la eliminación con el fin de mantener la integridad de los datos. Una funcionalidad adicional es la asignación de frecuencias a cooperativas. Los archivos a revisar para el manejo de este módulo son:
-* **views/modules/cooperativasadmin**
-* **views/modules/formularios/cooperativasformadmin**
+* **views/modules/cooperativasadmin.php**
+* **views/modules/formularios/cooperativasformadmin.php**
 ![Localhost](https://cdn.glitch.global/1d3dd682-c1e7-4386-94b7-857b9d3c741b/98cc3c9c-9622-4956-9602-d11b47c33fbc.jpg?v=1688858936830)
 #### Gestión Frecuencias
 En esta interfaz se encuentra implementado un CRUD para Frecuencias a excepción de la eliminación con el fin de mantener la integridad de los datos. Los archivos a revisar para el manejo de este módulo son:
-* **views/modules/frecuenciasadmin**
-* **views/modules/formularios/frecuenciasformadmin**
+* **views/modules/frecuenciasadmin.php**
+* **views/modules/formularios/frecuenciasformadmin.php**
 ![Localhost](https://cdn.glitch.global/1d3dd682-c1e7-4386-94b7-857b9d3c741b/98cc3c9c-9622-4956-9602-d11b47c33fbc.jpg?v=1688858936830)
 
 #### Perfil de Usuario
