@@ -72,9 +72,9 @@ git push origin nombre-de-la-rama
 ```
 5. Crea una pull request en este repositorio.
 
-### ©️ Licencia
+## ©️ Licencia
 Este proyecto académico no tiene una licencia específica asignada. Todos los derechos de autor pertenecen a los miembros del equipo de desarrollo. Ten en cuenta que esto significa que no se otorgan permisos explícitos para utilizar, modificar o distribuir el código fuente o los archivos relacionados. Cualquier uso, reproducción o distribución del proyecto debe obtener permiso previo.
-### 📧 Contacto
+## 📧 Contacto
 Si tienes alguna pregunta o comentario, puedes contactarte con los miembros del equipo de desarrollo:
 
 * dpinchao9519@uta.edu.ec
