@@ -30,6 +30,7 @@ git clone https://github.com/diana9519/ProyectoDasBusesAdministrador.git
 Cuando levantes Apache en XAMPP podrás acceder ya a la app con localhost.
 ![Localhost](https://cdn.glitch.global/1d3dd682-c1e7-4386-94b7-857b9d3c741b/d1704f62-01c5-433a-bb2e-7b42ad99f853.jpg?v=1688858510973)
 
+⚠️El proyecto incluye la carpeta de Bootstrap con los estilos y componentes necesarios. No es necesario instalar nada adicional.
 
 ## 💻 Uso
 
