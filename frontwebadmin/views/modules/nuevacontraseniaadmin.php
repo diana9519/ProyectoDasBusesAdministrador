@@ -77,7 +77,7 @@
                         if (response && response.OK) {
                             $('#successModal').modal('show');
                         } else {
-                            alert("Error al editar la contraseña");
+                            alert("Error al editar el perfil del usuario.");
                         }
                     },
                     error: function() {

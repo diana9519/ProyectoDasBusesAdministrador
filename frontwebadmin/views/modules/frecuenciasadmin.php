@@ -20,7 +20,7 @@
 
 <body>
   <div class="indexStyleTitulo">
-    <br><br><br>
+    <br>
     <div style="padding-left: 30px; padding-right: 30px; padding-top: 15px;">
       <h3 style="font-size: 20px;">
         <span style="display: inline-block; vertical-align: middle;">Nueva Frecuencia</span>
