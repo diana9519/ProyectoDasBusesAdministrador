@@ -28,7 +28,7 @@
           <img class="iconos" src="img/mas.png">
         </a>
       </h3>
-      
+
       <table class="table table-striped">
         <thead>
           <tr>
