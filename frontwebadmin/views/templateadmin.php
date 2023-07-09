@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 
 <html lang="en">
@@ -76,6 +79,7 @@
         </nav>
     </div>
     <section>
+    
         <?php
         $mvc = new MvcController();
         $mvc->enlacesPaginasControllerAdmin();

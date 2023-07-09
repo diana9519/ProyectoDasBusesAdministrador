@@ -28,6 +28,7 @@
           <img class="iconos" src="img/mas.png">
         </a>
       </h3>
+      
       <table class="table table-striped">
         <thead>
           <tr>
@@ -40,7 +41,7 @@
         </thead>
         <tbody>
           <?php
-          //servicio par listar las frecuencias
+          
           $url = 'https://nilotic-quart.000webhostapp.com/listarFrecuencias.php';
           $ch = curl_init($url);
           curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
