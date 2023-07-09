@@ -37,8 +37,8 @@
           </tr>
         </thead>
         <tbody>
+
           <?php
-          //Servicio para listar las cooperativas
           $url = 'https://nilotic-quart.000webhostapp.com/listarCooperativas.php';
 
           $ch = curl_init($url);
