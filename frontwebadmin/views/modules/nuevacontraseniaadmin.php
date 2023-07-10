@@ -77,7 +77,7 @@
                         if (response && response.OK) {
                             $('#successModal').modal('show');
                         } else {
-                            alert("Error al editar la contraseña");
+                            alert("Error al editar el perfil del usuario.");
                         }
                     },
                     error: function() {
@@ -108,6 +108,11 @@
             togglePasswordVisibility("newPasswordAgain", "toggleNewPasswordAgain");
             togglePasswordVisibility("currentPassword", "toggleCurrentPassword");
         });
+    </script>
+    <script>
+        function redirectToPerfil() {
+            window.location.href = 'redireccionadmin.php?action=perfilusuario';
+        }
     </script>
 </head>
 
@@ -175,7 +180,7 @@
                     <p class="mt-3">Guardado Exitosamente</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="redirectToPerfil()">Aceptar</button>
                 </div>
             </div>
         </div>

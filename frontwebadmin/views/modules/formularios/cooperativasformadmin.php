@@ -14,11 +14,10 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.1.9/sweetalert2.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.1.9/sweetalert2.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.0/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert2/11.1.9/sweetalert2.min.js"></script>
+
   <script>
     $(document).ready(function() {
       $("form").submit(function(event) {
@@ -82,6 +81,7 @@
         success: function(response) {
           if (response.OK) {
             console.log("ok");
+            location.reload();
             //Swal.fire("Success", "Deleted successfully", "success");
           } else {
             console.log("mal" + response.errorMsg, "error");
@@ -102,7 +102,7 @@
 
 </head>
 
-<body style="padding-top: 50px;">
+<body style="padding-top: 0px;">
   <div class="container">
     <div class="indexStyleTitulo">
       <div class="card p-4" style="max-height: 400px; overflow-y: auto;">
@@ -116,13 +116,13 @@
               <div class="row mb-3">
                 <label for="nombre_cooperativa" class="col-sm-4 col-form-label">Cooperativa:</label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control form-control-sm" id="nombre_cooperativa" name="nombre_cooperativa" placeholder="Ingrese el nombre de la cooperativa" style="height: auto; padding: 0.375rem 0.75rem; font-size: 0.875rem;" value="<?php echo $nombre_cooperativa; ?>">
+                  <input type="text" class="form-control form-control-sm" id="nombre_cooperativa" name="nombre_cooperativa" placeholder="Ingrese el nombre de la cooperativa" style="height: auto; padding: 0.375rem 0.75rem; font-size: 0.875rem;" value="<?php echo $nombre_cooperativa; ?>" required>
                 </div>
               </div>
               <div class="row mb-3">
                 <label for="ruc_cooperativa" class="col-sm-4 col-form-label">RUC:</label>
                 <div class="col-sm-8">
-                  <input type="text" class="form-control form-control-sm" id="ruc_cooperativa" name="ruc_cooperativa" placeholder="Ingrese el número de RUC" style="height: auto; padding: 0.375rem 0.75rem; font-size: 0.875rem;" value="<?php echo $ruc_cooperativa; ?>">
+                  <input type="text" class="form-control form-control-sm" id="ruc_cooperativa" name="ruc_cooperativa" placeholder="Ingrese el número de RUC" style="height: auto; padding: 0.375rem 0.75rem; font-size: 0.875rem;" value="<?php echo $ruc_cooperativa; ?>" required>
                 </div>
               </div>
               <div class="row mb-3">
@@ -179,7 +179,7 @@
                   </thead>
                   <tbody>
                     <?php
-                    $url = 'https://nilotic-quart.000webhostapp.com/listarFrecuenciaCooperativa.php';
+                    $url = 'https://nilotic-quart.000webhostapp.com/listarFrecuenciaCooperativaPost.php';
                     $data = array('id_cooperativa_pertenece' => $id_cooperativa);
 
                     $ch = curl_init($url);
@@ -202,6 +202,7 @@
                           //echo '<img class="iconos" src="img/frecuencias.png">';
                           //echo '<img class="iconos" src="img/editar.png" onclick="editFrecuencia(\'' . $frecuencia['id_frecuencia'] . '\', \'' . $frecuencia['origen_frecuencia'] . '\', \'' . $frecuencia['destino_frecuencia'] . '\', \'' . $frecuencia['costo_frecuencia'] . '\', \'' . $frecuencia['duracion_buses'] . '\')">';
                           echo '<img class="iconos" src="img/borrar.png" onclick="deleteFrecuenciaCooperativa(\'' . $frecuencia['id_frecuencia'] . '\', \'' . $id_cooperativa . '\')">';
+
                           echo '</td>';
                           echo '</tr>';
                         }
@@ -217,7 +218,7 @@
                 </table>
               </div>
               <div class="d-flex justify-content-between">
-                <button type="submit" class="btn btn-primary" style="width: 45%;" onclick="redirectToCooperativas()">Guardar</button>
+                <button type="submit" class="btn btn-primary" style="width: 45%;">Guardar</button>
                 <button type="button" class="btn btn-outline-primary" style="width: 45%;" onclick="redirectToCooperativas()">Cancelar</button>
               </div>
             </form>
@@ -289,7 +290,8 @@
             </table>
             <div class="modal-footer">
               <button type="submit" class="btn btn-primary">Guardar</button>
-              <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Cerrar</button>
+              <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" onclick="window.location.reload()">Cerrar</button>
+
             </div>
           </form>
         </div>
@@ -307,7 +309,7 @@
           <p class="mt-3">Guardo Exitosamente</p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Ok</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="redirectToCooperativas()">Ok</button>
         </div>
       </div>
     </div>
@@ -336,6 +338,7 @@
             success: function(response) {
               if (response.OK) {
                 Swal.fire("Success", "Saved successfully", "success");
+                location.reload()
               } else {
                 Swal.fire("Error", "Failed to save: " + response.errorMsg, "error");
               }
@@ -361,7 +364,7 @@
         var nombreCooperativa = $("#nombre_cooperativa").val();
         var cantidadBuses = $("#cantidad_buses").val();
         var estado = $("#estado").val();
-        
+
         if (estado == "activa") {
           estado = 1
         } else {
@@ -388,6 +391,7 @@
             // Por ejemplo:
             if (response.OK) {
               Swal.fire("Success", "Saved successfully", "success");
+              location.reload()
             } else {
               Swal.fire("Error", "Failed to save: " + response.errorMsg, "error");
             }

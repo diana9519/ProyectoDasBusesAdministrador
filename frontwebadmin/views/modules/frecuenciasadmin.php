@@ -20,7 +20,7 @@
 
 <body>
   <div class="indexStyleTitulo">
-    <br><br><br>
+    <br>
     <div style="padding-left: 30px; padding-right: 30px; padding-top: 15px;">
       <h3 style="font-size: 20px;">
         <span style="display: inline-block; vertical-align: middle;">Nueva Frecuencia</span>
@@ -28,31 +28,31 @@
           <img class="iconos" src="img/mas.png">
         </a>
       </h3>
-      
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th scope="col">Origen</th>
-            <th scope="col">Destino</th>
-            <th scope="col">Costo</th>
-            <th scope="col">Duración</th>
-            <th scope="col">Acciones </th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php
-          
-          $url = 'https://nilotic-quart.000webhostapp.com/listarFrecuencias.php';
-          $ch = curl_init($url);
-          curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+      <div style="height: 300px; overflow: auto;">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Origen</th>
+              <th scope="col">Destino</th>
+              <th scope="col">Costo</th>
+              <th scope="col">Duración</th>
+              <th scope="col">Editar </th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php
 
-          $response = curl_exec($ch);
+            $url = 'https://nilotic-quart.000webhostapp.com/listarFrecuencias.php';
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-          if ($response !== false) {
-            $data = json_decode($response, true);
+            $response = curl_exec($ch);
 
-            if (!empty($data)) {
-              echo '<script>
+            if ($response !== false) {
+              $data = json_decode($response, true);
+
+              if (!empty($data)) {
+                echo '<script>
                                     var cityMap = {
                                       1: "Cuenca",
                                       2: "Guaranda",
@@ -94,27 +94,29 @@
                                     });
                                 </script>';
 
-              foreach ($data as $frecuencia) {
-                echo '<tr>';
-                echo '<td class="city" data-id="' . $frecuencia['origen_frecuencia'] . '"></td>';
-                echo '<td class="city" data-id="' . $frecuencia['destino_frecuencia'] . '"></td>';
-                echo '<td>' . $frecuencia['costo_frecuencia'] . '</td>';
-                echo '<td>' . $frecuencia['duracion_frecuencia'] . '</td>';
-                echo '<td>';
-                echo '<img class="iconos" src="img/editar.png" onclick="editarFrecuencia(\'' . $frecuencia['id_frecuencia'] . '\', \'' . $frecuencia['origen_frecuencia'] . '\', \'' . $frecuencia['destino_frecuencia'] . '\', \'' . $frecuencia['costo_frecuencia'] . '\',\'' . $frecuencia['duracion_frecuencia'] . '\')">';
-                echo '</td>';
-                echo '</tr>';
+                foreach ($data as $frecuencia) {
+                  echo '<tr>';
+                  echo '<td class="city" data-id="' . $frecuencia['origen_frecuencia'] . '"></td>';
+                  echo '<td class="city" data-id="' . $frecuencia['destino_frecuencia'] . '"></td>';
+                  echo '<td>' . $frecuencia['costo_frecuencia'] . '</td>';
+                  echo '<td>' . $frecuencia['duracion_frecuencia'] . '</td>';
+                  echo '<td>';
+                  echo '<img class="iconos" src="img/editar.png" onclick="editarFrecuencia(\'' . $frecuencia['id_frecuencia'] . '\', \'' . $frecuencia['origen_frecuencia'] . '\', \'' . $frecuencia['destino_frecuencia'] . '\', \'' . $frecuencia['costo_frecuencia'] . '\',\'' . $frecuencia['duracion_frecuencia'] . '\')">';
+                  echo '</td>';
+                  echo '</tr>';
+                }
+              } else {
+                echo '<tr><td colspan="5">No se encontraron registros en la tabla</td></tr>';
               }
             } else {
-              echo '<tr><td colspan="5">No se encontraron registros en la tabla</td></tr>';
+              echo '<tr><td colspan="5">Error al obtener los datos</td></tr>';
             }
-          } else {
-            echo '<tr><td colspan="5">Error al obtener los datos</td></tr>';
-          }
-          curl_close($ch);
-          ?>
-        </tbody>
-      </table>
+            curl_close($ch);
+            ?>
+          </tbody>
+        </table>
+      </div>
+
     </div>
   </div>
 </body>
