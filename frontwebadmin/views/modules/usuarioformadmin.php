@@ -13,7 +13,9 @@
             $.ajax({
                 type: 'POST',
                 url: 'https://nilotic-quart.000webhostapp.com/obtenerDatosUsuario.php',
-                data: { id_usuario: idUsuario },
+                data: {
+                    id_usuario: idUsuario
+                },
                 dataType: 'json',
                 success: function(response) {
                     console.log(response); // Verifica la respuesta en la consola del navegador
@@ -69,6 +71,11 @@
             });
         });
     </script>
+    <script>
+        function redirectToPerfil() {
+            window.location.href = 'redireccionadmin.php?action=perfilusuario';
+        }
+    </script>
 </head>
 
 <body>
@@ -93,9 +100,10 @@
                         <div class="mb-3 row">
                             <label for="identificationCard" class="col-sm-4 col-form-label">Número de identificación</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="identificationCard" placeholder="Ingrese su número de identificación">
+                                <input type="text" class="form-control" id="identificationCard" placeholder="Ingrese su número de identificación" readonly>
                             </div>
                         </div>
+
                         <div class="mb-3 row">
                             <label for="email" class="col-sm-4 col-form-label">Correo:</label>
                             <div class="col-sm-8">
@@ -127,7 +135,7 @@
                     <p class="mt-3">Guardado Exitosamente</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Aceptar</button>
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="redirectToPerfil()">Aceptar</button>
                 </div>
             </div>
         </div>
