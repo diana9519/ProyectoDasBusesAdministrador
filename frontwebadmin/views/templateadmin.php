@@ -79,7 +79,7 @@ session_start();
         </nav>
     </div>
     <section>
-
+    
         <?php
         $mvc = new MvcController();
         $mvc->enlacesPaginasControllerAdmin();

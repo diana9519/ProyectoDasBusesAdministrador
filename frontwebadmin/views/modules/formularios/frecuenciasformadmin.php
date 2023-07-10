@@ -89,7 +89,7 @@
           data: data,
           success: function(response) {
             // Mostrar mensaje de éxito y redireccionar a la página de inicio
-            alert("Frecuencia agregada correctamente");
+            
           },
           error: function(xhr, status, error) {
             // Mostrar mensaje de error en caso de falla
@@ -105,6 +105,16 @@
       window.location.href = 'redireccionadmin.php?action=frecuencias';
     }
   </script>
+  <script>
+    $(document).ready(function() {
+      $("form").submit(function(event) {
+        event.preventDefault(); // Evitar que se envíe el formulario
+
+        // Mostrar ventana emergente con mensaje y icono
+        $('#successModal').modal('show');
+      });
+    });
+  </script>
 
 </head>
 
@@ -119,7 +129,7 @@
         <div class="row mb-3">
           <label for="origen_frecuencia" class="col-sm-4 col-form-label">Origen:</label>
           <div class="col-sm-8">
-            <select class="form-control form-control-sm city" id="origen_frecuencia" name="origen_frecuencia" style="height: auto; padding: 0.375rem 0.75rem; font-size: 0.875rem;">
+            <select class="form-control form-control-sm city" id="origen_frecuencia" name="origen_frecuencia" style="height: auto; padding: 0.375rem 0.75rem; font-size: 0.875rem;" required>
               <option value="">Escoja una opción</option>
             </select>
           </div>
@@ -127,7 +137,7 @@
         <div class="row mb-3">
           <label for="destino_frecuencia" class="col-sm-4 col-form-label">Destino:</label>
           <div class="col-sm-8">
-            <select class="form-control form-control-sm city" id="destino_frecuencia" name="destino_frecuencia" style="height: auto; padding: 0.375rem 0.75rem; font-size: 0.875rem;">
+            <select class="form-control form-control-sm city" id="destino_frecuencia" name="destino_frecuencia" style="height: auto; padding: 0.375rem 0.75rem; font-size: 0.875rem;" required>
               <option value="">Escoja una opción</option>
             </select>
           </div>
@@ -136,20 +146,35 @@
         <div class="row mb-3">
           <label for="costo_frecuencia" class="col-sm-4 col-form-label">Costo:</label>
           <div class="col-sm-8">
-            <input type="text" class="form-control form-control-sm" id="costo_frecuencia" name="costo_frecuencia" placeholder="Ingrese el costo" style="height: auto; padding: 0.375rem 0.75rem; font-size: 0.875rem;" value="<?php echo $costo_frecuencia; ?>">
+            <input type="text" class="form-control form-control-sm" id="costo_frecuencia" name="costo_frecuencia" placeholder="Ingrese el costo" style="height: auto; padding: 0.375rem 0.75rem; font-size: 0.875rem;" value="<?php echo $costo_frecuencia; ?>" required>
           </div>
         </div>
         <div class="row mb-3">
           <label for="duracion_frecuencia" class="col-sm-4 col-form-label">Duración:</label>
           <div class="col-sm-8">
-            <input type="text" class="form-control form-control-sm" id="duracion_frecuencia" name="duracion_frecuencia" placeholder="Ingrese la duración" style="height: auto; padding: 0.375rem 0.75rem; font-size: 0.875rem;" value="<?php echo $duracion_frecuencia; ?>">
+            <input type="text" class="form-control form-control-sm" id="duracion_frecuencia" name="duracion_frecuencia" placeholder="Ingrese la duración" style="height: auto; padding: 0.375rem 0.75rem; font-size: 0.875rem;" value="<?php echo $duracion_frecuencia; ?>" required>
           </div>
         </div>
         <div class="d-flex justify-content-between">
-          <button type="submit" class="btn btn-primary" style="width: 45%; "onclick="redirectToFrecuencias()">Guardar</button>
+          <button type="submit" class="btn btn-primary" style="width: 45%; ">Guardar</button>
           <button type="button" class="btn btn-outline-primary" style="width: 45%;" onclick="redirectToFrecuencias()">Cancelar</button>
         </div>
-
+        <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body text-center">
+                <i class="fas fa-check-circle fa-4x text-success"></i>
+                <p class="mt-3">Guardo Exitosamente</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="redirectToFrecuencias()">Ok</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </form>
     </div>
   </div>
